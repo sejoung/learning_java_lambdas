@@ -7,7 +7,7 @@ public class Example {
     private String firstName = "Sejoung";
 
     public void example() {
-        Function<String, String> addSurname = (String surname) -> {
+        Function<String, String> addSurname = (surname) -> {
             return firstName + " " + surname;
         };
     }
@@ -25,13 +25,14 @@ public class Example {
         Function<String, String> addSurname = new Function<String, String>() {
             @Override
             public String apply(String surname) {
-                return this.firstName + " " + surname; //컴파일 에러
+                return null;
+                //return this.firstName + " " + surname; //컴파일 에러
             }
         };
     }
 
     public void shadowingExample(String firstName) {
-        Function<String, String> addSurname = (String surname) -> {
+        Function<String, String> addSurname = (surname) -> {
             //this를 쓰지 않으면 매개변수
             return firstName + " " + surname;
         };
@@ -48,6 +49,5 @@ public class Example {
     }
 
     public static void main(String[] args) {
-
     }
 }
